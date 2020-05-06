@@ -3,16 +3,15 @@
   "version": "1.0.0",
   "description": "Widgets for websites from testometrika.com",
   "main": "index.js",
-  "scripts": {
-
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/testometrika/widget-js.git"
   },
   "keywords": [
     "testometrika",
-    "testometrika widget"
+    "testometrika widget",
+    "online tests"
   ],
   "author": {
     "name": "Testometrika Team",
