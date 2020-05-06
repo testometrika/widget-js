@@ -1,4 +1,9 @@
-// module.exports = require('./lib/argparse');
+/*!
+ * testometrika/widget-js <https://github.com/testometrika/widget-js>
+ *
+ * Copyright (c) testometrika.com
+ * Released under the Apache-2.0 License.
+ */
 
 var testometrika_widget = (function(){
     "use strict";
@@ -31,6 +36,10 @@ var testometrika_widget = (function(){
 
             testometrika_widget.Test(settings);
         });
+    }
+
+    let Init = function (){
+        testometrika_widget.Test(settings);
     }
 
     let Test = function(settings){
@@ -101,4 +110,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     testometrika_widget.AutoInit();
 });
 
-module.exports = testometrika_widget;
+if(typeof module != "undefined") {
+    module.exports = testometrika_widget;
+}
