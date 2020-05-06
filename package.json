@@ -1,6 +1,6 @@
 {
   "name": "@testometrika/widget",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Widgets for websites from testometrika.com. Widgets online tests.",
   "main": "index.js",
   "scripts": {
