@@ -1,9 +1,11 @@
 {
   "name": "@testometrika/widget",
   "version": "1.0.1",
-  "description": "Widgets for websites from testometrika.com",
+  "description": "Widgets for websites from testometrika.com. Widgets online tests.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\""
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/testometrika/widget-js.git"

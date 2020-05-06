@@ -1,11 +1,12 @@
-;var testometrika_widget = (function(){
+// module.exports = require('./lib/argparse');
+
+var testometrika_widget = (function(){
     "use strict";
 
     const classWidgetAutoInit = 'testometrika_widget';
     const tmDomain = 'testometrika.com';
     const tmDir = 'w';
     const tmProtocol = 'https';
-
 
     let AutoInit = function (){
         let els = document.getElementsByClassName(classWidgetAutoInit);
@@ -99,3 +100,5 @@ testometrika_widget.AutoInit();
 document.addEventListener("DOMContentLoaded", function(event) {
     testometrika_widget.AutoInit();
 });
+
+module.exports = testometrika_widget;
