@@ -7,7 +7,7 @@ Widgets for websites from testometrika.com. Widgets online tests.
 #### Load from CDN
 Put this script tag to the \<head\> of your page once
 ```html
-<script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/@testometrika/widget/index.min.js"></script>
+<script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/@testometrika/widget@1/index.min.js"></script>
 ```
 
 #### Install through NPM
@@ -35,12 +35,14 @@ testometrika_widget.Test({key: 'REPLACE_KEY'});
 
 Load from CDN
 ```html
-<script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/@testometrika/widget/index.min.js"></script>
+<script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/@testometrika/widget@1/index.min.js"></script>
 
 <!--widget-->
 <div id="REPLACE_KEY"></div>
 <script>
-    testometrika_widget.Test({key: 'REPLACE_KEY'});
+    window.onload = function() {
+        testometrika_widget.Test({key: 'REPLACE_KEY'});
+    }
 </script>
 ```
 3.Configuration
