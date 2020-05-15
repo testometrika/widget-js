@@ -1,38 +1,38 @@
 # widget-js
-Widgets for websites from testometrika.com. Widgets online tests.
-##### Demo examples:
-[Full page](https://testometrika.com/w/demo/)
+Виджет онлайн-тестов testometrika.com для встраивания в веб-сайты.
+##### Демо примеры:
+[Виджет на всю ширину](https://testometrika.com/w/demo/)
 
-[Included in the text](https://testometrika.com/w/demo/blog.html)
+[Встраивание в текст страницы](https://testometrika.com/w/demo/blog.html)
 
-Features:
-- Adapted for mobile devices.
-- Automatic width and height.
+Функции:
+- Адаптирован для мобильных.
+- Автоматически подстраивается ширина и высота.
 
 
-1.Installation
+1.Установка. Варианты:
 -----------------------------------
 
-#### Load from CDN
-Put this script tag to the \<head\> of your page once
+#### Подключение через CDN
+Разместитите единожды скрипт в теге \<head\> 
 ```html
 <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/@testometrika/widget@1/index.min.js"></script>
 ```
 
-#### Install through NPM
+#### Установка с помощью NPM
 ```html
 npm i @testometrika/widget --save
 ```
 
-2.Initialization
+2.Инициализация. Варианты:
 -----------------------------------
-#### Auto initialization
+#### Автоматическая
 ```html
 <div class="testometrika_widget" id="REPLACE_KEY"></div>
 ```
 
-#### Manual initialization
-Install through NPM
+#### Ручная инициализация
+Подключиние с помощью NPM
 ```html
 import testometrika_widget from '@testometrika/widget';
 testometrika_widget.Test({key: 'REPLACE_KEY'});
@@ -42,7 +42,7 @@ testometrika_widget.Test({key: 'REPLACE_KEY'});
 
 ```
 
-Load from CDN
+Подключиние через CDN
 ```html
 <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/@testometrika/widget@1/index.min.js"></script>
 
@@ -54,11 +54,11 @@ Load from CDN
     }
 </script>
 ```
-3.Configuration
+3.Конфигурирование
 -----------------------------------
-Coming soon...
+Появится позже...
 
-4.Widget implementation example
+4.Пример подключения виджета
 -----------------------------------
 ```html
 <!DOCTYPE html>
@@ -70,3 +70,4 @@ Coming soon...
     <div class="testometrika_widget" id="REPLACE_KEY"></div>
 </body>
 </html>
+```
