@@ -1,5 +1,5 @@
 # widget-js
-Widgets for websites from testometrika.com. Widgets online tests.
+Widgets for websites from [testometrika.com](https://testometrika.com). Widgets online tests.
 ##### Demo examples:
 [Full page](https://testometrika.com/w/demo/)
 
