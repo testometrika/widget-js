@@ -1,5 +1,14 @@
 # widget-js
 Widgets for websites from testometrika.com. Widgets online tests.
+##### Demo examples:
+[Full page](https://testometrika.com/w/demo/)
+
+[Included in the text](https://testometrika.com/w/demo/blog.html)
+
+Features:
+- Adapted for mobile devices.
+- Automatic width and height.
+
 
 1.Installation
 -----------------------------------
