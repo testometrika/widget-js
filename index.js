@@ -31,15 +31,47 @@ var testometrika_widget = (function(){
                 if(name.indexOf('data') === 0 ) {
                     settings[name.replace("data-","")] = att.nodeValue;
                 }
-
             }
 
             testometrika_widget.Test(settings);
         });
     }
 
-    let Init = function (){
-        testometrika_widget.Test(settings);
+    let Session = function (){
+        const sessionKey = 'testometrika_session';
+
+        function init() {
+            if(!isSession() ){
+                setSession();
+            }
+
+            return '?sid='+getSession(); // return GET param
+        }
+
+        function setSession() {
+            localStorage.setItem(sessionKey, generateId(20) );
+        }
+
+        function generateId (len) {
+            let id = "wgt";
+            let possible = "abcdefghijklmnopqrstuvwxyz0123456789";
+
+            for (let i = 0; i < len; i++) {
+                id += possible.charAt(Math.floor(Math.random() * possible.length));
+            }
+
+            return id;
+        }
+
+        function getSession() {
+            return localStorage.getItem(sessionKey);
+        }
+
+        function isSession() {
+            return getSession() !== null;
+        }
+
+        return init();
     }
 
     let Test = function(settings){
@@ -65,8 +97,8 @@ var testometrika_widget = (function(){
         }
 
         let iframe = document.createElement("iframe");
-        iframe.src = `${tmProtocol}://${settings.subdomain}${tmDomain}/${tmDir}/${settings.key}`;
 
+        iframe.src = `${tmProtocol}://${settings.subdomain}${tmDomain}/${tmDir}/${settings.key}${Session()}`;
         iframe.id = iframeId;
         iframe.name = `${settings.key}_name`; // this is important
         iframe.scrolling = "no";
@@ -99,6 +131,7 @@ var testometrika_widget = (function(){
     return {
         Test: Test,
         AutoInit: AutoInit,
+        Session: Session,
     }
 })();
 
@@ -113,3 +146,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
 if(typeof module != "undefined") {
     module.exports = testometrika_widget;
 }
+

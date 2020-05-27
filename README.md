@@ -58,7 +58,7 @@ Load from CDN
 -----------------------------------
 Coming soon...
 
-4.Widget implementation example
+4.Widget usage example
 -----------------------------------
 ```html
 <!DOCTYPE html>

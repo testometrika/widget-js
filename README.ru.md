@@ -44,3 +44,4 @@
 </body>
 </html>
 ```
+Более подробное описание https://github.com/testometrika/widget-js
