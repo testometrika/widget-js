@@ -91,6 +91,10 @@ var testometrika_widget = (function(){
             settings.heightInitial = "700px";
         }
 
+        if(!settings.loading){
+            settings.loading = "lazy";
+        }
+
         let iframeId = `${settings.key}_iframe`;
         if(document.getElementById(iframeId) ){
             return;
@@ -102,6 +106,9 @@ var testometrika_widget = (function(){
         iframe.id = iframeId;
         iframe.name = `${settings.key}_name`; // this is important
         iframe.scrolling = "no";
+        iframe.setAttribute('loading', settings.loading);
+
+        // style
         iframe.style.border = "none";
         iframe.style.width = "100%";
         iframe.style.display = "block";
@@ -146,4 +153,3 @@ document.addEventListener("DOMContentLoaded", function(event) {
 if(typeof module != "undefined") {
     module.exports = testometrika_widget;
 }
-
