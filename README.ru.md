@@ -29,7 +29,15 @@
 
 3.Конфигурирование
 -----------------------------------
-Появится позже...
+| Name                | Default   | Description                                                                                             |
+| ------------------- |-----------| --------------------------------------------------------------------------------------------------------|
+| auto_height         | true      | Автоматическая высота iframe (true or false)                                                            |
+| height_initial      | "700px"   | Первоначальная высота перед началом загрузки iframe (px, %, em or auto)                                 | 
+| loading             | "lazy"    | Нативная ленивая загрузка iframe (lazy, auto, eager) https://caniuse.com/#feat=loading-lazy-attr        |
+
+```html
+<div class="testometrika_widget" id="REPLACE_KEY" data-height_initial='700px' data-auto_height='true'></div>
+```
 
 4.Пример подключения виджета
 -----------------------------------
