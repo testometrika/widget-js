@@ -12,17 +12,20 @@ var testometrika_widget = (function(){
     const tmDomain = 'testometrika.com';
     const tmDir = 'w';
     const tmProtocol = 'https';
+    let testWidgets = [];
+    let runListenMessageFromOrigin = true;
 
     let AutoInit = function (){
         let els = document.getElementsByClassName(classWidgetAutoInit);
 
+        // get settings from attr data-*
         Array.prototype.forEach.call(els, function(el) {
             let nodes=[], values=[];
             let settings = {};
             for (let att, i = 0, atts = el.attributes, n = atts.length; i < n; i++){
                 att = atts[i];
 
-                if(att.nodeName == 'id') {
+                if(att.nodeName === 'id') {
                     settings.key = att.nodeValue;
                 }
 
@@ -31,6 +34,11 @@ var testometrika_widget = (function(){
                 if(name.indexOf('data') === 0 ) {
                     settings[name.replace("data-","")] = att.nodeValue;
                 }
+            }
+
+            // convert string parameter to boolean
+            if(typeof settings.auto_height !== 'undefined' ){
+                settings.auto_height = settings.auto_height.toLowerCase() === 'true';
             }
 
             testometrika_widget.Test(settings);
@@ -80,15 +88,19 @@ var testometrika_widget = (function(){
             return;
         }
 
-        // lang test
-        if(settings.subdomain){
+        // default settings:
+        if(settings.subdomain){ // subdomain for lang test
             settings.subdomain = `${settings.subdomain}.`;
         }else{
             settings.subdomain = '';
         }
 
-        if(!settings.heightInitial){
-            settings.heightInitial = "700px";
+        if(!settings.height_initial){
+            settings.height_initial = "700px";
+        }
+
+        if(typeof settings.auto_height !== "boolean"){
+            settings.auto_height = true;
         }
 
         if(!settings.loading){
@@ -105,28 +117,47 @@ var testometrika_widget = (function(){
         iframe.src = `${tmProtocol}://${settings.subdomain}${tmDomain}/${tmDir}/${settings.key}${Session()}`;
         iframe.id = iframeId;
         iframe.name = `${settings.key}_name`; // this is important
-        iframe.scrolling = "no";
+
+        if (settings.auto_height === true) {
+            iframe.scrolling = "no"; // browsers support tag scrolling even in html5
+        }
+
         iframe.setAttribute('loading', settings.loading);
 
         // style
         iframe.style.border = "none";
         iframe.style.width = "100%";
         iframe.style.display = "block";
-        iframe.style.height = settings.heightInitial; // set initial height
+        iframe.style.height = settings.height_initial;
 
         let container = document.getElementById(settings.key);
         container.appendChild(iframe);
 
-        window.onmessage=(e)=>{
-            if(e.data.hasOwnProperty("frameHeight")){
-                let h = parseInt(e.data.frameHeight);
-                let f = document.getElementById(`${e.data.key}_iframe`);
+        // save objects
+        testWidgets[settings.key] = new function() {
+            this.settings = settings;
+            this.iframe = iframe;
+        }
 
-                if (e.origin.indexOf(tmDomain) == -1) {
+        if(runListenMessageFromOrigin) {
+            runListenMessageFromOrigin = false;
+            window.onmessage = (e) => {
+                if (!e.data.hasOwnProperty("frameHeight") ) {
                     return;
                 }
 
-                if (isNaN(h)){
+                if (testWidgets[e.data.key].settings.auto_height !== true) {
+                    return;
+                }
+
+                let h = parseInt(e.data.frameHeight);
+                let f = document.getElementById(`${e.data.key}_iframe`);
+
+                if (e.origin.indexOf(tmDomain) === -1) {
+                    return;
+                }
+
+                if (isNaN(h)) {
                     return;
                 }
 
