@@ -3,7 +3,7 @@ Widgets for websites from [testometrika.com](https://testometrika.com). Widgets 
 ##### Demo examples:
 [Full page](https://testometrika.com/w/demo/)
 
-[Included in the text](https://testometrika.com/w/demo/blog.html)
+[Included in the text](https://testometrika.com/w/demo/blog/)
 
 Features:
 - Adapted for mobile devices.
