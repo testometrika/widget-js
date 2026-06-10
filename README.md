@@ -61,6 +61,7 @@ Load from CDN
 | auto_height         | true      | Automatic Iframe Height Setting (true or false)                                                         |
 | height_initial      | "700px"   | Initial height before loading iframe (px, %, em or auto)                                                | 
 | loading             | "lazy"    | Native lazy loading iframe (lazy, auto, eager) https://caniuse.com/#feat=loading-lazy-attr              |
+| subdomain           | ""        | Language subdomain of testometrika.com (e.g. `en`). Set it when embedding a non-default-language test so the widget UI loads in that language. Empty = default language.|
 
 4.Widget usage example
 -----------------------------------
